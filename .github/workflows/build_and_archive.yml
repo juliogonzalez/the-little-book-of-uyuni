@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - 'main' # Only main for the moment
-    pull_request:
-      types: [opened, synchronize, reopened]
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 jobs:
   run:
@@ -22,7 +22,7 @@ jobs:
     - name: Archive the PDF
       uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f #v6.0.0
       with:
-        name: the-little-book-of-uyuni-pdf-${{ github.ref_name }}
+        name: the-little-book-of-uyuni-pdf-${{ github.event.pull_request.number || github.ref_name }}
         path: build/
 
     - name: Build the EPUB
@@ -33,5 +33,5 @@ jobs:
     - name: Archive the EPUB
       uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f #v6.0.0
       with:
-        name: the-little-book-of-uyuni-epub-${{ github.ref_name }}
+        name: the-little-book-of-uyuni-epub-${{ github.event.pull_request.number || github.ref_name }}
         path: build/
