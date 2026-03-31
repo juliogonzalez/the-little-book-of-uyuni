@@ -1,4 +1,4 @@
-= Mirroring Software Packages with {mlm} and Uyuni
+= Mirroring Software Packages with {mlm} and {uyuni}
 
 For any software to be useful, a user must be able to install it in their environment. {uyuni} currently focuses on two of the most popular package formats:
 
